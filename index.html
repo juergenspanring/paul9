@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paul – Fußball Highlights</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Paul – Fußball</h1>
+    <p>Highlights, Skills & Matches ⚽️</p>
+  </header>
+
+  <main>
+    <h2>Videos</h2>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer>
+    <small>© <span id="y"></span> Paul</small>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    fetch("videos.json")
+      .then(r => r.json())
+      .then(videos => {
+        const grid = document.getElementById("grid");
+        videos.forEach(v => {
+          const card = document.createElement("article");
+          card.className = "card";
+          card.innerHTML = `
+            <h3>${v.title}</h3>
+            <p class="meta">${v.date} • ${v.type}</p>
+            <div class="video">
+              <iframe
+                src="${v.embedUrl}"
+                title="${v.title}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            </div>
+            <p>${v.note ?? ""}</p>
+          `;
+          grid.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
