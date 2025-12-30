@@ -3,50 +3,82 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Paul – Fußball Highlights</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Paul – Fußball Profil</title>
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0; background:#0b1220; color:#e8eefc; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 18px; }
+    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 16px; align-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 16px; }
+    .avatar { width:120px; height:120px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.05)); display:flex; align-items:center; justify-content:center; font-size: 42px; }
+    h1 { margin: 0; font-size: 28px; }
+    .sub { margin: 6px 0 0; opacity: .85; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; margin-top: 14px; }
+    .card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 14px; }
+    .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+    .big { font-size: 18px; margin-top: 6px; }
+    .pill { display:inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.12); margin: 6px 6px 0 0; }
+    a.btn { display:inline-block; margin-top: 12px; padding: 10px 14px; border-radius: 12px; background:#3b82f6; color:white; text-decoration:none; font-weight:600; }
+    footer { opacity:.65; margin-top: 16px; font-size: 12px; }
+    @media (max-width: 520px) { .hero { grid-template-columns: 1fr; } .avatar { width:100%; height:160px; } }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Paul – Fußball</h1>
-    <p>Highlights, Skills & Matches ⚽️</p>
-  </header>
+  <div class="wrap">
+    <section class="hero">
+      <div class="avatar">⚽️</div>
+      <div>
+        <h1>Paul – Fußball Profil</h1>
+        <p class="sub">Jahrgang: 2013 • Position: (eintragen) • Verein: (eintragen)</p>
+        <a class="btn" href="#highlights">Zu den Highlights</a>
+      </div>
+    </section>
 
-  <main>
-    <h2>Videos</h2>
-    <div id="grid" class="grid"></div>
-  </main>
+    <section class="grid" aria-label="Profil-Karten">
+      <div class="card">
+        <div class="label">Stärken</div>
+        <div class="big">
+          <span class="pill">Tempo</span>
+          <span class="pill">Dribbling</span>
+          <span class="pill">Spielübersicht</span>
+          <span class="pill">Zweikampf</span>
+        </div>
+      </div>
 
-  <footer>
-    <small>© <span id="y"></span> Paul</small>
-  </footer>
+      <div class="card">
+        <div class="label">Kurzprofil</div>
+        <div class="big">
+          Leistungsorientiert, trainingsfleißig, teamorientiert. Fokus: Technik, erster Kontakt, Entscheidungsgeschwindigkeit.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="label">Stats (Beispiel)</div>
+        <div class="big">
+          Größe: ___ cm<br>
+          Starker Fuß: Rechts/Links<br>
+          Lieblingsposition: ___
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights" class="card" style="margin-top:14px;">
+      <div class="label">Highlights</div>
+      <div class="big" style="margin-top:8px;">
+        <p>Hier kommen später eure Videos rein (YouTube unlisted / Vimeo) – wir bauen als Nächstes eine Video-Galerie.</p>
+        <ul>
+          <li>Training Highlights</li>
+          <li>Match Szenen</li>
+          <li>Tore & Assists</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Paul • Erstellt mit GitHub Pages
+    </footer>
+  </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    fetch("videos.json")
-      .then(r => r.json())
-      .then(videos => {
-        const grid = document.getElementById("grid");
-        videos.forEach(v => {
-          const card = document.createElement("article");
-          card.className = "card";
-          card.innerHTML = `
-            <h3>${v.title}</h3>
-            <p class="meta">${v.date} • ${v.type}</p>
-            <div class="video">
-              <iframe
-                src="${v.embedUrl}"
-                title="${v.title}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-            </div>
-            <p>${v.note ?? ""}</p>
-          `;
-          grid.appendChild(card);
-        });
-      });
   </script>
 </body>
 </html>
