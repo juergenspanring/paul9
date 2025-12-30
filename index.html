@@ -3,96 +3,170 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Paul – Fußball Profil</title>
-  <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0; background:#0b1220; color:#e8eefc; }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 18px; }
-    .hero { display:grid; grid-template-columns: 120px 1fr; gap: 16px; align-items:center; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 16px; }
-    .avatar { width:120px; height:120px; border-radius: 16px; background: linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.05)); display:flex; align-items:center; justify-content:center; font-size: 42px; }
-    h1 { margin: 0; font-size: 28px; }
-    .sub { margin: 6px 0 0; opacity: .85; }
-    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 14px; margin-top: 14px; }
-    .card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 14px; }
-    .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
-    .big { font-size: 18px; margin-top: 6px; }
-    .pill { display:inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.12); margin: 6px 6px 0 0; }
-    a.btn { display:inline-block; margin-top: 12px; padding: 10px 14px; border-radius: 12px; background:#3b82f6; color:white; text-decoration:none; font-weight:600; }
-    footer { opacity:.65; margin-top: 16px; font-size: 12px; }
-    @media (max-width: 520px) { .hero { grid-template-columns: 1fr; } .avatar { width:100%; height:160px; } }
-  </style>
+  <title>Paul – Fußballprofil</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="nav">
-  <div class="nav-inner">
-    <strong>⚽ Paul</strong>
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#videos">Videos</a>
-      <a href="#about">Über mich</a>
-      <a href="#contact">Kontakt</a>
+
+  <!-- NAV -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#home">PAUL<span class="dot">•</span>FOOTBALL</a>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#profile">Profil</a>
+        <a href="#videos">Videos</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
     </div>
-  </div>
-</nav>
-  <div class="wrap">
-   <section id="home" class="hero">
-      <div class="avatar">⚽️</div>
-      <div>
-        <h1>Paul – Fußball Profil</h1>
-        <p class="sub">Jahrgang: 2014 • Position: Mittelfeld • Verein: USV Sankt Ulrich </p>
-        <a class="btn" href="#highlights">Zu den Highlights</a>
-      </div>
-    </section>
-    <section class="grid" aria-label="Profil-Karten">
-      <div class="card">
-        <div class="label">Stärken</div>
-        <div class="big">
-          <span class="pill">Tempo</span>
-          <span class="pill">Dribbling</span>
-          <span class="pill">Spielübersicht</span>
-          <span class="pill">Zweikampf</span>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="container hero__grid">
+      <div class="hero__copy">
+        <p class="kicker">Fußballprofil</p>
+        <h1>Paul</h1>
+        <p class="lead">
+          Jahrgang <strong>2014</strong> • Verein <strong>USV Sankt Ulrich</strong>
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="#videos">Highlights ansehen</a>
+          <a class="btn btn--ghost" href="#profile">Zum Profil</a>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Technik</span>
+          <span class="chip">Tempo</span>
+          <span class="chip">Spielverständnis</span>
+          <span class="chip">Teamplay</span>
         </div>
       </div>
 
-      <div class="card">
-        <div class="label">Kurzprofil</div>
-        <div class="big">
-          Leistungsorientiert, trainingsfleißig, teamorientiert. Fokus: Technik, erster Kontakt, Entscheidungsgeschwindigkeit.
+      <div class="hero__media">
+        <!-- Foto-Datei nach assets/paul.jpg hochladen -->
+        <img class="portrait" src="assets/paul.jpg" alt="Paul – Fußball" />
+        <div class="badge">
+          <div class="badge__title">USV Sankt Ulrich</div>
+          <div class="badge__sub">Jahrgang 2014</div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="card">
-        <div class="label">Stats (Beispiel)</div>
-        <div class="big">
-          Größe: ___ cm<br>
-          Starker Fuß: Rechts/Links<br>
-          Lieblingsposition: ___
-        </div>
+  <!-- PROFILE -->
+  <section id="profile" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Profil</h2>
+        <p>Kurzer Überblick – klar, sauber, scout-freundlich.</p>
       </div>
-    </section>
 
-    <section id="highlights" class="card" style="margin-top:14px;">
-      <div class="label">Highlights</div>
-      <div class="big" style="margin-top:8px;">
-        <p>Hier kommen später eure Videos rein (YouTube unlisted / Vimeo) – wir bauen als Nächstes eine Video-Galerie.</p>
-        <ul>
-          <li>Training Highlights</li>
-          <li>Match Szenen</li>
-          <li>Tore & Assists</li>
-        </ul>
+      <div class="grid">
+        <article class="card">
+          <h3>Über mich</h3>
+          <p>
+            Leidenschaftlicher Fußballer mit Fokus auf Technik, erster Kontakt und schnelle Entscheidungen.
+            Ich arbeite kontinuierlich an meinen Stärken – am liebsten mit Ball am Fuß. 🙂
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Stärken</h3>
+          <ul class="list">
+            <li>Ballkontrolle & Dribbling</li>
+            <li>Tempo & Antritt</li>
+            <li>Spielübersicht</li>
+            <li>Teamplay & Einsatz</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Stats</h3>
+          <ul class="list">
+            <li>Position: <em>(eintragen)</em></li>
+            <li>Starker Fuß: <em>(eintragen)</em></li>
+            <li>Größe: <em>(eintragen)</em></li>
+            <li>Rückennummer: <em>(optional)</em></li>
+          </ul>
+        </article>
       </div>
-    </section>
-    <section id="contact" class="card" style="margin-top:14px;">
-  <div class="label">Kontakt</div>
-  <div class="big">
-    📧 E-Mail: kontakt@beispiel.at<br>
-    📍 Region: Oberösterreich
-  </div>
-</section>
+    </div>
+  </section>
 
-    <footer>
-      © <span id="y"></span> Paul • Erstellt mit GitHub Pages
-    </footer>
-  </div>
+  <!-- VIDEOS -->
+  <section id="videos" class="section section--alt">
+    <div class="container">
+      <div class="section__head">
+        <h2>Videos</h2>
+        <p>Hier betten wir YouTube (unlisted) oder Vimeo ein – sauber ohne GitHub-Videochaos.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Highlight #1</h3>
+          <div class="video">
+            <!-- VIDEO_ID ersetzen -->
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="Paul – Highlight"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <p class="muted">Tipp: Video auf YouTube als „Nicht gelistet“ hochladen.</p>
+        </article>
+
+        <article class="card">
+          <h3>Highlight #2</h3>
+          <div class="video">
+            <iframe
+              src="https://www.youtube.com/embed/VIDEO_ID"
+              title="Paul – Highlight"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <p class="muted">Wir können später auch eine Galerie + Filter bauen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section__head">
+        <h2>Kontakt</h2>
+        <p>Wenn du willst: nur „Mailto“ oder ein echtes Formular (ohne Server) via Formspree.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Kontakt</h3>
+          <p>
+            E-Mail: <a href="mailto:kontakt@beispiel.at">kontakt@beispiel.at</a><br/>
+            Region: Oberösterreich
+          </p>
+          <p class="muted">
+            Hinweis: Videos sind teilweise nicht öffentlich – Link auf Anfrage.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Social (optional)</h3>
+          <p class="muted">
+            Hier könnten später Instagram / TikTok / Vereinsseite rein – wenn ihr mögt.
+          </p>
+        </article>
+      </div>
+
+      <footer class="footer">
+        © <span id="y"></span> Paul • USV Sankt Ulrich
+      </footer>
+    </div>
+  </section>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
